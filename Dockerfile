@@ -43,7 +43,7 @@ RUN npm install --save-dev @next/eslint-plugin-next
 
 COPY address.json /app/node_modules/@oceanprotocol/contracts/addresses/address.json 
 
-COPY .env /app/.env
+COPY .env.placeholder /app/.env
 
 RUN npm run build:static
 
