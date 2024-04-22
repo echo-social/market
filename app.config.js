@@ -54,7 +54,8 @@ module.exports = {
     'RUB',
     'ETH',
     'BTC',
-    'LINK'
+    'LINK',
+    'ECHO'
   ],
 
   // Tokens to fetch the spot prices from coingecko, against above currencies.

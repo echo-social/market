@@ -11,6 +11,8 @@ RUN apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
 RUN python3 -m ensurepip
 RUN pip3 install --no-cache --upgrade pip setuptools
 
+RUN git clone https://github.com/echo-social/ocean.js.git -b feature/taraxa_testnet && cd ocean.js && npm install && npm run build
+
 WORKDIR /app
 
 # COPY . /app/
@@ -40,6 +42,7 @@ COPY tsconfig.json /app/tsconfig.json
 
 RUN npm install
 RUN npm install --save-dev @next/eslint-plugin-next
+RUN npm install /ocean.js/
 
 COPY address.json /app/node_modules/@oceanprotocol/contracts/addresses/address.json 
 

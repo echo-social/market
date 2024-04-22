@@ -28,7 +28,7 @@ export const taraxaTestnet = {
   id: 842,
   name: 'taraxa_testnet',
   network: 'taraxa_testnet',
-  nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+  nativeCurrency: { name: 'Taraxa', symbol: 'TARA', decimals: 18 },
   rpcUrls: {
     default: { http: ['https://rpc.testnet.taraxa.io'] },
     public: { http: ['https://rpc.testnet.taraxa.io'] }
