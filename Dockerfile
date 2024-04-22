@@ -41,7 +41,6 @@ COPY package.json /app/package.json
 COPY tsconfig.json /app/tsconfig.json
 
 RUN npm install
-RUN npm install --save-dev @next/eslint-plugin-next
 RUN npm install /ocean.js/
 
 COPY address.json /app/node_modules/@oceanprotocol/contracts/addresses/address.json 
@@ -55,6 +54,7 @@ FROM nginx:1.25.1-alpine
 
 COPY --from=builder /app/out /usr/share/nginx/html
 COPY entrypoint.sh /entrypoint.sh
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
