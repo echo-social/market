@@ -8,7 +8,6 @@ import TopSales from './TopSales'
 import TopTags from './TopTags'
 import SectionQueryResult from './SectionQueryResult'
 import styles from './index.module.css'
-import Allocations from './Allocations'
 import MostViews from './MostViews'
 
 export default function HomePage(): ReactElement {
@@ -59,13 +58,6 @@ export default function HomePage(): ReactElement {
         <h3>Your Bookmarks</h3>
         <Bookmarks />
       </section>
-
-      <Allocations />
-
-      <SectionQueryResult
-        title="Highest veOCEAN Allocations"
-        query={queryMostAllocation}
-      />
 
       <SectionQueryResult title="Most Sales" query={queryMostSales} />
       {/* <MostViews /> */}

@@ -14,7 +14,6 @@ import { useMarketMetadata } from '@context/MarketMetadata'
 import Tooltip from '@shared/atoms/Tooltip'
 import Markdown from '@shared/Markdown'
 import content from '../../../../content/footer.json'
-import { getTotalAllocatedAndLocked } from '@utils/veAllocation'
 import PriceUnit from '@shared/Price/PriceUnit'
 import Loader from '@components/@shared/atoms/Loader'
 
@@ -85,13 +84,6 @@ export default function MarketStats(): ReactElement {
     setData(newData)
   }, [mainChainIds])
 
-  async function addVeTotals(partialTotals: StatsTotal) {
-    const total: StatsTotal = { ...partialTotals }
-    const veTotals = await getTotalAllocatedAndLocked()
-    total.veAllocated = veTotals.totalAllocated
-    total.veLocked = veTotals.totalLocked
-    return total
-  }
   //
   // 1. Fetch Data
   //
@@ -120,11 +112,6 @@ export default function MarketStats(): ReactElement {
         LoggerInstance.error('Error data manipulation: ', error.message)
       }
     }
-    async function setTotalAllocatedAndLocked() {
-      setTotal(await addVeTotals(newTotal))
-      setLoading(false)
-    }
-    setTotalAllocatedAndLocked()
   }, [data, mainChainIds])
 
   return loading ? (
@@ -139,22 +126,6 @@ export default function MarketStats(): ReactElement {
             <Markdown className={styles.note} text={content.stats.note} />
           }
         />
-      </div>
-      <div>
-        <PriceUnit
-          decimals="0"
-          price={total.veLocked}
-          symbol="OCEAN"
-          size="small"
-        />{' '}
-        locked.{' '}
-        <PriceUnit
-          decimals="0"
-          price={total.veAllocated}
-          symbol="veOCEAN"
-          size="small"
-        />{' '}
-        allocated.
       </div>
     </div>
   )
