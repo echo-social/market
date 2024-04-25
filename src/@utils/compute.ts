@@ -315,19 +315,29 @@ export async function getComputeJobs(
   const datatokenAddressList = tokenOrders.map(
     (tokenOrder: TokenOrder) => tokenOrder.datatoken.address
   )
-  if (!datatokenAddressList) return
+  if (datatokenAddressList.length === 0) {
+    computeResult.isLoaded = true
+    return computeResult
+  }
 
   const assets = await getAssetMetadata(
     datatokenAddressList,
     cancelToken,
     chainIds
   )
+  if (assets.length === 0) {
+    computeResult.isLoaded = true
+    return computeResult
+  }
 
   const providerUrls: string[] = []
   assets.forEach((asset: Asset) =>
     providerUrls.push(asset.services[0].serviceEndpoint)
   )
-
+  if (providerUrls.length === 0) {
+    computeResult.isLoaded = true
+    return computeResult
+  }
   computeResult.computeJobs = await getJobs(providerUrls, accountId, assets)
   computeResult.isLoaded = true
 
