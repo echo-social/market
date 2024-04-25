@@ -5,7 +5,6 @@ import Stats from './Stats'
 import Account from './Account'
 import styles from './index.module.css'
 import { useProfile } from '@context/Profile'
-import DmButton from '@shared/DirectMessages/DmButton'
 
 const isDescriptionTextClamped = () => {
   const el = document.getElementById('description')
@@ -40,9 +39,6 @@ export default function AccountHeader({
       </div>
 
       <div>
-        <div className={styles.directMessage}>
-          <DmButton accountId={accountId} />
-        </div>
         <Markdown text={profile?.description} className={styles.description} />
         {isDescriptionTextClamped() ? (
           <span className={styles.more} onClick={toogleShowMore}>
