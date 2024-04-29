@@ -46,8 +46,6 @@ COPY address.json /app/node_modules/@oceanprotocol/contracts/addresses/address.j
 
 COPY .env.placeholder /app/.env
 
-RUN npm run build
-
 COPY entrypoint.sh /app/entrypoint.sh
 
 ENTRYPOINT ["/app/entrypoint.sh"]
