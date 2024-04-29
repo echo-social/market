@@ -51,7 +51,8 @@ module.exports = (phase, { defaultConfig }) => {
       return typeof defaultConfig.webpack === 'function'
         ? defaultConfig.webpack(config, options)
         : config
-    }
+    },
+    output: 'standalone'
 
     // Prefer loading of ES Modules over CommonJS
     // https://nextjs.org/blog/next-11-1#es-modules-support

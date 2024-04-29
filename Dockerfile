@@ -1,6 +1,5 @@
 # build static
-FROM node:16.18.1-alpine as builder
-
+FROM node:16.18.1-alpine 
 
 RUN apk add build-base
 RUN apk add bash
@@ -47,14 +46,7 @@ COPY address.json /app/node_modules/@oceanprotocol/contracts/addresses/address.j
 
 COPY .env.placeholder /app/.env
 
-RUN npm run build:static
+COPY entrypoint.sh /app/entrypoint.sh
 
-# nginx
-FROM nginx:1.25.1-alpine
-
-COPY --from=builder /app/out /usr/share/nginx/html
-COPY entrypoint.sh /entrypoint.sh
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/app/entrypoint.sh"]
+CMD ["npm", "start"]
