@@ -44,10 +44,8 @@ RUN npm install /ocean.js/
 
 COPY address.json /app/node_modules/@oceanprotocol/contracts/addresses/address.json 
 
-COPY .env.placeholder /app/.env
+COPY .env.testnet /app/.env
 
-COPY entrypoint.sh /app/entrypoint.sh
-
-ENTRYPOINT ["/app/entrypoint.sh"]
+RUN npm run build
 
 CMD ["npm", "start"]
