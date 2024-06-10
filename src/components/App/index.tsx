@@ -3,7 +3,6 @@ import Alert from '@shared/atoms/Alert'
 import Footer from '../Footer/Footer'
 import Header from '../Header'
 import { useAccountPurgatory } from '@hooks/useAccountPurgatory'
-import AnnouncementBanner from '@shared/AnnouncementBanner'
 import PrivacyPreferenceCenter from '../Privacy/PrivacyPreferenceCenter'
 import styles from './index.module.css'
 import { ToastContainer } from 'react-toastify'
@@ -22,9 +21,6 @@ export default function App({
 
   return (
     <div className={styles.app}>
-      {siteContent?.announcement !== '' && (
-        <AnnouncementBanner text={siteContent?.announcement} />
-      )}
       <Header />
 
       {isInPurgatory && (

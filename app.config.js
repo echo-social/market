@@ -11,10 +11,10 @@ module.exports = {
 
   // List of chainIds which metadata cache queries will return by default.
   // This preselects the Chains user preferences.
-  chainIds: [1, 137, 10],
+  chainIds: [842],
 
   // List of all supported chainIds. Used to populate the Chains user preferences list.
-  chainIdsSupported: [1, 137, 10, 80001, 11155111],
+  chainIdsSupported: [842],
 
   customProviderUrl: process.env.NEXT_PUBLIC_PROVIDER_URL,
 
@@ -54,7 +54,8 @@ module.exports = {
     'RUB',
     'ETH',
     'BTC',
-    'LINK'
+    'LINK',
+    'ECHO'
   ],
 
   // Tokens to fetch the spot prices from coingecko, against above currencies.

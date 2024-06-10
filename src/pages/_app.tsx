@@ -52,13 +52,13 @@ function MyApp({ Component, pageProps }: AppProps): ReactElement {
               <UserPreferencesProvider>
                 <PricesProvider>
                   <ConsentProvider>
-                    <OrbisProvider>
-                      <PostHogProvider client={posthog}>
-                        <App>
-                          <Component {...pageProps} />
-                        </App>
-                      </PostHogProvider>
-                    </OrbisProvider>
+                    {/* <OrbisProvider> */}
+                    <PostHogProvider client={posthog}>
+                      <App>
+                        <Component {...pageProps} />
+                      </App>
+                    </PostHogProvider>
+                    {/* </OrbisProvider> */}
                   </ConsentProvider>
                 </PricesProvider>
               </UserPreferencesProvider>

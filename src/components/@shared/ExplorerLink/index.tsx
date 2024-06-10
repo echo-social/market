@@ -28,7 +28,7 @@ export default function ExplorerLink({
 
   return (
     <a
-      href={`${url}/${path}`}
+      href={`${url}${path}`}
       title={`View on ${oceanConfig?.explorerUri}`}
       target="_blank"
       rel="noreferrer"

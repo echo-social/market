@@ -15,7 +15,6 @@ import NetworkName from '@shared/NetworkName'
 import content from '../../../../content/purgatory.json'
 import Button from '@shared/atoms/Button'
 import RelatedAssets from '../RelatedAssets'
-import DmButton from '@shared/DirectMessages/DmButton'
 import Web3Feedback from '@components/@shared/Web3Feedback'
 import { useAccount } from 'wagmi'
 
@@ -82,9 +81,6 @@ export default function AssetContent({
               </Button>
             </div>
           )}
-          <div className={styles.ownerActions}>
-            <DmButton accountId={asset?.nft?.owner} />
-          </div>
           <Web3Feedback
             networkId={asset?.chainId}
             accountId={accountId}

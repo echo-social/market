@@ -1,4 +1,4 @@
-import { networkDataGaiaX } from './constants'
+// import { networkDataGaiaX } from './constants'
 
 export enum NetworkType {
   Mainnet = 'mainnet',
@@ -67,7 +67,8 @@ export function getNetworkDataById(
     (chain: EthereumListsChain) => chain.chainId === networkId
   )
 
-  return networkId === 2021000 ? networkDataGaiaX : networkData[0]
+  // return networkId === 2021000 ? networkDataGaiaX : networkData[0]
+  return networkData[0]
 }
 
 export function filterNetworksByType(

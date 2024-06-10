@@ -52,15 +52,7 @@ module.exports = (phase, { defaultConfig }) => {
         ? defaultConfig.webpack(config, options)
         : config
     },
-    async redirects() {
-      return [
-        {
-          source: '/publish',
-          destination: '/publish/1',
-          permanent: true
-        }
-      ]
-    }
+    output: 'standalone'
 
     // Prefer loading of ES Modules over CommonJS
     // https://nextjs.org/blog/next-11-1#es-modules-support
