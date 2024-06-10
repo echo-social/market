@@ -35,13 +35,24 @@ export const taraxaTestnet = {
   }
 } as const satisfies Chain
 
+export const taraxaMainnet = {
+  id: 841,
+  name: 'taraxa_mainnet',
+  network: 'taraxa_mainnet',
+  nativeCurrency: { name: 'Taraxa', symbol: 'TARA', decimals: 18 },
+  rpcUrls: {
+    default: { http: ['https://rpc.mainnet.taraxa.io'] },
+    public: { http: ['https://rpc.mainnet.taraxa.io'] }
+  }
+} as const satisfies Chain
+
 // Wagmi client
 export const wagmiClient = createClient(
   getDefaultClient({
     appName: 'Ocean Market',
     infuraId: process.env.NEXT_PUBLIC_INFURA_PROJECT_ID,
     // TODO: mapping between appConfig.chainIdsSupported and wagmi chainId
-    chains: [taraxaTestnet],
+    chains: [taraxaMainnet],
     walletConnectProjectId: process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID
   })
 )

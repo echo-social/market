@@ -44,7 +44,7 @@ RUN npm install /ocean.js/
 
 COPY address.json /app/node_modules/@oceanprotocol/contracts/addresses/address.json 
 
-COPY .env.testnet /app/.env
+COPY .env.mainnet /app/.env
 
 RUN npm run build
 
