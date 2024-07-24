@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import styles from './Footer.module.css'
 import Markdown from '@shared/Markdown'
 import MarketStats from './MarketStats'
-import BuildId from './BuildId'
+// import BuildId from './BuildId'
 import Links from './Links'
 import Button from '@shared/atoms/Button'
 import External from '@images/external.svg'
@@ -14,7 +14,7 @@ export default function Footer(): ReactElement {
 
   return (
     <footer className={styles.footer}>
-      <BuildId />
+      {/* <BuildId /> */}
       <MarketStats />
 
       <div className={styles.grid}>
